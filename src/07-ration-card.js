@@ -54,10 +54,17 @@
  */
 export function getFamilyNames(registry) {
   // Your code here
+  if (typeof registry !== "object" || registry === null || Array.isArray(registry) ) {
+    return [];
+  }
+ const objectKeys = Object.keys(registry);
+ return objectKeys;
+
 }
 
 export function getAllFamilies(registry) {
   // Your code here
+
 }
 
 export function getRationCardEntries(registry) {
