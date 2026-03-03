@@ -43,7 +43,7 @@
  *      - Array.from() se string ko characters ki array mein convert karo
  *      - Agar str string nahi hai, return []
  *      - Example: stringToChars("Dak") => ["D", "a", "k"]
- *      - Example: stringToChars("") => []
+ *      - Example: stringToChars("") => [] 
  *
  * @example
  *   parcelToJSON({id:"P001"})            // => '{"id":"P001"}'
@@ -53,20 +53,53 @@
  */
 export function parcelToJSON(parcel) {
   // Your code here
+  try {
+    
+    let parsed = JSON.stringify(parcel);
+    if (parsed === undefined) {
+      return "";
+    }
+    return parsed;
+  } catch (error) {
+    return null
+    
+  }
 }
 
 export function jsonToParcel(jsonString) {
   // Your code here
+  try {
+    if(typeof jsonString !== "string") {
+      return null
+    }
+    return JSON.parse(jsonString);
+    
+  } catch (error) {
+    return null
+    
+  }
 }
 
 export function convertToString(value) {
   // Your code here
+  return String(value)
 }
 
 export function convertToNumber(value) {
   // Your code here
+  let result = Number(value);
+  if(Number.isNaN(value)) {
+    return ""
+  }
+  return result
 }
 
 export function stringToChars(str) {
   // Your code here
+  if(typeof str !== "string") {
+    return []
+  }
+  let arrayFrom = Array.from(str);
+  return arrayFrom
+
 }
