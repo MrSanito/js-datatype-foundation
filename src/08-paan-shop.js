@@ -88,4 +88,9 @@ export function updatePrices(menu, increase) {
 
 export function mergeDailySpecials(regularMenu, specialsMenu) {
   // Your code here
+  if(typeof regularMenu !== "object" || typeof specialsMenu !== "object") {
+    return {}
+  }
+
+  return {...regularMenu, ...specialsMenu}
 }
