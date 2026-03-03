@@ -84,15 +84,33 @@ export function isValidPincode(code) {
 
 }
 
-export function formatPostcardField(label, value, width) {
+export function formatPostcardField(label, value, width = 12) {
   // Your code here
-  
+  if(typeof label !== "string" ||typeof value !== "string") {return ""}
+  return label.padEnd(width) + ": " + value
+
+
 }
 
 export function isFromState(address, stateCode) {
   // Your code here
+  if (typeof address !== "string" || typeof stateCode !== "string") {
+    return false;
+  }
+
+  if(!  address.endsWith(stateCode) 
+){
+  return false;
+}
+return true
+
 }
 
 export function countVowels(message) {
   // Your code here
+    if (typeof message !== "string") return 0;
+
+
+
+  return message.match(/[aeiou]/gi)?.length ?? 0;
 }
